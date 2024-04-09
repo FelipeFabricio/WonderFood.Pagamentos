@@ -1,4 +1,4 @@
-﻿namespace Wonderfood.Database.Settings;
+﻿namespace Wonderfood.Repository.Settings;
 
 public class MongoDbSettings
 {

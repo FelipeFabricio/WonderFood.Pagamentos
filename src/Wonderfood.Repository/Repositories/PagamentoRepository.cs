@@ -1,18 +1,22 @@
-﻿using MongoDB.Bson;
+﻿using Microsoft.Extensions.Options;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using Wonderfood.Core.Entities;
 using Wonderfood.Core.Interfaces;
-using Wonderfood.Database.Context;
+using Wonderfood.Repository.Interfaces;
+using Wonderfood.Repository.Settings;
 
-namespace Wonderfood.Database.Repositories;
+namespace Wonderfood.Repository.Repositories;
 
 public class PagamentoRepository : IPagamentoRepository
 {
     private readonly IMongoCollection<Pagamento> _pagamentos;
+    private readonly MongoDbSettings _settings;
 
-    public PagamentoRepository(MongoDbContext context)
+    public PagamentoRepository(IMongoDbContext context, IOptions<MongoDbSettings> settings)
     {
-        _pagamentos = context.Pagamentos;
+        _settings = settings.Value;
+        _pagamentos = context.GetDatabase().GetCollection<Pagamento>(_settings.CollectionName);
     }
     
     public async Task<List<Pagamento>> ObterTodos()

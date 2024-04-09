@@ -1,17 +1,28 @@
-using Wonderfood.Core.Interfaces;
-using Wonderfood.Database.Context;
-using Wonderfood.Database.Repositories;
-using Wonderfood.Database.Settings;
-using Wonderfood.Worker;
+using Wonderfood.Repository.Extensions;
 
-var builder = Host.CreateApplicationBuilder(args);
-builder.Services.Configure<MongoDbSettings>(
-    builder.Configuration.GetSection("MongoDbSettings"));
+var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddHostedService<Worker>();
-builder.Services.AddScoped<MongoDbContext>();
-builder.Services.AddScoped<IPagamentoRepository, PagamentoRepository>();
+// Add services to the container.
 
+builder.Services.AddControllers();
+builder.Services.AddMongoDbServices(builder.Configuration);
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
-var host = builder.Build();
-host.Run();
+var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+app.UseHttpsRedirection();
+
+app.UseAuthorization();
+
+app.MapControllers();
+
+app.Run();

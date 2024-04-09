@@ -1,20 +1,86 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Wonderfood.Pagamentos\\src\\Wonderfood.Repository\\Wonderfood.Repository.csproj": {}
+    "C:\\Users\\kamon\\OneDrive\\Documentos\\Estudos\\Wonderfood-Pagamentos\\src\\Wonderfood.Repository\\Wonderfood.Repository.csproj": {}
   },
   "projects": {
-    "C:\\Wonderfood.Pagamentos\\src\\Wonderfood.Repository\\Wonderfood.Repository.csproj": {
+    "C:\\Users\\kamon\\OneDrive\\Documentos\\Estudos\\Wonderfood-Pagamentos\\src\\Wonderfood.Core\\Wonderfood.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Wonderfood.Pagamentos\\src\\Wonderfood.Repository\\Wonderfood.Repository.csproj",
-        "projectName": "Wonderfood.Repository",
-        "projectPath": "C:\\Wonderfood.Pagamentos\\src\\Wonderfood.Repository\\Wonderfood.Repository.csproj",
-        "packagesPath": "C:\\Users\\ffoli\\.nuget\\packages\\",
-        "outputPath": "C:\\Wonderfood.Pagamentos\\src\\Wonderfood.Repository\\obj\\",
+        "projectUniqueName": "C:\\Users\\kamon\\OneDrive\\Documentos\\Estudos\\Wonderfood-Pagamentos\\src\\Wonderfood.Core\\Wonderfood.Core.csproj",
+        "projectName": "Wonderfood.Core",
+        "projectPath": "C:\\Users\\kamon\\OneDrive\\Documentos\\Estudos\\Wonderfood-Pagamentos\\src\\Wonderfood.Core\\Wonderfood.Core.csproj",
+        "packagesPath": "C:\\Users\\kamon\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\kamon\\OneDrive\\Documentos\\Estudos\\Wonderfood-Pagamentos\\src\\Wonderfood.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ffoli\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\kamon\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "MongoDB.Bson": {
+              "target": "Package",
+              "version": "[2.24.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\kamon\\OneDrive\\Documentos\\Estudos\\Wonderfood-Pagamentos\\src\\Wonderfood.Repository\\Wonderfood.Repository.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\kamon\\OneDrive\\Documentos\\Estudos\\Wonderfood-Pagamentos\\src\\Wonderfood.Repository\\Wonderfood.Repository.csproj",
+        "projectName": "Wonderfood.Repository",
+        "projectPath": "C:\\Users\\kamon\\OneDrive\\Documentos\\Estudos\\Wonderfood-Pagamentos\\src\\Wonderfood.Repository\\Wonderfood.Repository.csproj",
+        "packagesPath": "C:\\Users\\kamon\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\kamon\\OneDrive\\Documentos\\Estudos\\Wonderfood-Pagamentos\\src\\Wonderfood.Repository\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\kamon\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +94,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Wonderfood.Pagamentos\\Wonderfood.Core\\Wonderfood.Core.csproj": {
-                "projectPath": "C:\\Wonderfood.Pagamentos\\Wonderfood.Core\\Wonderfood.Core.csproj"
+              "C:\\Users\\kamon\\OneDrive\\Documentos\\Estudos\\Wonderfood-Pagamentos\\src\\Wonderfood.Core\\Wonderfood.Core.csproj": {
+                "projectPath": "C:\\Users\\kamon\\OneDrive\\Documentos\\Estudos\\Wonderfood-Pagamentos\\src\\Wonderfood.Core\\Wonderfood.Core.csproj"
               }
             }
           }
@@ -38,12 +104,21 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
             "Microsoft.Extensions.Options": {
               "target": "Package",
               "version": "[8.0.0, )"
@@ -77,68 +152,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.103/PortableRuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "C:\\Wonderfood.Pagamentos\\Wonderfood.Core\\Wonderfood.Core.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Wonderfood.Pagamentos\\Wonderfood.Core\\Wonderfood.Core.csproj",
-        "projectName": "Wonderfood.Core",
-        "projectPath": "C:\\Wonderfood.Pagamentos\\Wonderfood.Core\\Wonderfood.Core.csproj",
-        "packagesPath": "C:\\Users\\ffoli\\.nuget\\packages\\",
-        "outputPath": "C:\\Wonderfood.Pagamentos\\Wonderfood.Core\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\ffoli\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net8.0"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net8.0": {
-            "targetAlias": "net8.0",
-            "projectReferences": {}
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net8.0": {
-          "targetAlias": "net8.0",
-          "dependencies": {
-            "MongoDB.Bson": {
-              "target": "Package",
-              "version": "[2.24.0, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.103/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

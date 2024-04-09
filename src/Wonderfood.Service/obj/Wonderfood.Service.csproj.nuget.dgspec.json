@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Wonderfood.Pagamentos\\src\\Wonderfood.Service\\Wonderfood.Service.csproj": {}
+    "C:\\Users\\kamon\\OneDrive\\Documentos\\Estudos\\Wonderfood-Pagamentos\\src\\Wonderfood.Service\\Wonderfood.Service.csproj": {}
   },
   "projects": {
-    "C:\\Wonderfood.Pagamentos\\src\\Wonderfood.Service\\Wonderfood.Service.csproj": {
+    "C:\\Users\\kamon\\OneDrive\\Documentos\\Estudos\\Wonderfood-Pagamentos\\src\\Wonderfood.Service\\Wonderfood.Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Wonderfood.Pagamentos\\src\\Wonderfood.Service\\Wonderfood.Service.csproj",
+        "projectUniqueName": "C:\\Users\\kamon\\OneDrive\\Documentos\\Estudos\\Wonderfood-Pagamentos\\src\\Wonderfood.Service\\Wonderfood.Service.csproj",
         "projectName": "Wonderfood.Service",
-        "projectPath": "C:\\Wonderfood.Pagamentos\\src\\Wonderfood.Service\\Wonderfood.Service.csproj",
-        "packagesPath": "C:\\Users\\ffoli\\.nuget\\packages\\",
-        "outputPath": "C:\\Wonderfood.Pagamentos\\src\\Wonderfood.Service\\obj\\",
+        "projectPath": "C:\\Users\\kamon\\OneDrive\\Documentos\\Estudos\\Wonderfood-Pagamentos\\src\\Wonderfood.Service\\Wonderfood.Service.csproj",
+        "packagesPath": "C:\\Users\\kamon\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\kamon\\OneDrive\\Documentos\\Estudos\\Wonderfood-Pagamentos\\src\\Wonderfood.Service\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ffoli\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\kamon\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -34,6 +34,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -55,7 +60,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.103/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

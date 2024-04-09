@@ -1,18 +1,23 @@
 ﻿using Microsoft.Extensions.Options;
 using MongoDB.Driver;
-using Wonderfood.Core.Entities;
-using Wonderfood.Database.Settings;
+using Wonderfood.Repository.Interfaces;
+using Wonderfood.Repository.Settings;
 
 namespace Wonderfood.Database.Context;
 
-public class MongoDbContext
+public class MongoDbContext : IMongoDbContext
 {
-    public IMongoCollection<Pagamento> Pagamentos;
+    private readonly MongoDbSettings _settings;
+    private readonly MongoClient _client;
 
     public MongoDbContext(IOptions<MongoDbSettings> settings)
     {
-        var client = new MongoClient(settings.Value.ConnectionString);
-        var database = client.GetDatabase(settings.Value.DatabaseName);
-        Pagamentos = database.GetCollection<Pagamento>(settings.Value.CollectionName);
+        _settings = settings.Value;
+        _client = new MongoClient(_settings.ConnectionString);
+    }
+
+    public IMongoDatabase GetDatabase()
+    {
+        return _client.GetDatabase(_settings.DatabaseName);
     }
 }

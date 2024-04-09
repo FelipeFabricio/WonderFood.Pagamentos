@@ -47,6 +47,25 @@
           }
         }
       },
+      "Microsoft.Extensions.Configuration.Abstractions/8.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.Configuration.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Configuration.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
+        }
+      },
       "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.0": {
         "type": "package",
         "compile": {
@@ -435,6 +454,36 @@
         "lib/netstandard2.0/DnsClient.xml",
         "lib/netstandard2.1/DnsClient.dll",
         "lib/netstandard2.1/DnsClient.xml"
+      ]
+    },
+    "Microsoft.Extensions.Configuration.Abstractions/8.0.0": {
+      "sha512": "3lE/iLSutpgX1CC0NOW70FJoGARRHbyKmG7dc0klnUZ9Dd9hS6N/POPWhKhMLCEuNN5nXEY5agmlFtH562vqhQ==",
+      "type": "package",
+      "path": "microsoft.extensions.configuration.abstractions/8.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/Microsoft.Extensions.Configuration.Abstractions.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net6.0/_._",
+        "buildTransitive/netcoreapp2.0/Microsoft.Extensions.Configuration.Abstractions.targets",
+        "lib/net462/Microsoft.Extensions.Configuration.Abstractions.dll",
+        "lib/net462/Microsoft.Extensions.Configuration.Abstractions.xml",
+        "lib/net6.0/Microsoft.Extensions.Configuration.Abstractions.dll",
+        "lib/net6.0/Microsoft.Extensions.Configuration.Abstractions.xml",
+        "lib/net7.0/Microsoft.Extensions.Configuration.Abstractions.dll",
+        "lib/net7.0/Microsoft.Extensions.Configuration.Abstractions.xml",
+        "lib/net8.0/Microsoft.Extensions.Configuration.Abstractions.dll",
+        "lib/net8.0/Microsoft.Extensions.Configuration.Abstractions.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.xml",
+        "microsoft.extensions.configuration.abstractions.8.0.0.nupkg.sha512",
+        "microsoft.extensions.configuration.abstractions.nuspec",
+        "useSharedDesignerContext.txt"
       ]
     },
     "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.0": {
@@ -950,12 +999,13 @@
     },
     "Wonderfood.Core/1.0.0": {
       "type": "project",
-      "path": "../../Wonderfood.Core/Wonderfood.Core.csproj",
-      "msbuildProject": "../../Wonderfood.Core/Wonderfood.Core.csproj"
+      "path": "../Wonderfood.Core/Wonderfood.Core.csproj",
+      "msbuildProject": "../Wonderfood.Core/Wonderfood.Core.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "Microsoft.Extensions.Configuration.Abstractions >= 8.0.0",
       "Microsoft.Extensions.Options >= 8.0.0",
       "MongoDB.Bson >= 2.24.0",
       "MongoDB.Driver >= 2.24.0",
@@ -964,19 +1014,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ffoli\\.nuget\\packages\\": {}
+    "C:\\Users\\kamon\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Wonderfood.Pagamentos\\src\\Wonderfood.Repository\\Wonderfood.Repository.csproj",
+      "projectUniqueName": "C:\\Users\\kamon\\OneDrive\\Documentos\\Estudos\\Wonderfood-Pagamentos\\src\\Wonderfood.Repository\\Wonderfood.Repository.csproj",
       "projectName": "Wonderfood.Repository",
-      "projectPath": "C:\\Wonderfood.Pagamentos\\src\\Wonderfood.Repository\\Wonderfood.Repository.csproj",
-      "packagesPath": "C:\\Users\\ffoli\\.nuget\\packages\\",
-      "outputPath": "C:\\Wonderfood.Pagamentos\\src\\Wonderfood.Repository\\obj\\",
+      "projectPath": "C:\\Users\\kamon\\OneDrive\\Documentos\\Estudos\\Wonderfood-Pagamentos\\src\\Wonderfood.Repository\\Wonderfood.Repository.csproj",
+      "packagesPath": "C:\\Users\\kamon\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\kamon\\OneDrive\\Documentos\\Estudos\\Wonderfood-Pagamentos\\src\\Wonderfood.Repository\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ffoli\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\kamon\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -990,8 +1040,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Wonderfood.Pagamentos\\Wonderfood.Core\\Wonderfood.Core.csproj": {
-              "projectPath": "C:\\Wonderfood.Pagamentos\\Wonderfood.Core\\Wonderfood.Core.csproj"
+            "C:\\Users\\kamon\\OneDrive\\Documentos\\Estudos\\Wonderfood-Pagamentos\\src\\Wonderfood.Core\\Wonderfood.Core.csproj": {
+              "projectPath": "C:\\Users\\kamon\\OneDrive\\Documentos\\Estudos\\Wonderfood-Pagamentos\\src\\Wonderfood.Core\\Wonderfood.Core.csproj"
             }
           }
         }
@@ -1000,12 +1050,21 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
       "net8.0": {
         "targetAlias": "net8.0",
         "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": {
+            "target": "Package",
+            "version": "[8.0.0, )"
+          },
           "Microsoft.Extensions.Options": {
             "target": "Package",
             "version": "[8.0.0, )"
@@ -1039,7 +1098,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.103/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

@@ -1,0 +1,6 @@
+@Wonderfood.Worker_HostAddress = http://localhost:5233
+
+GET {{Wonderfood.Worker_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
