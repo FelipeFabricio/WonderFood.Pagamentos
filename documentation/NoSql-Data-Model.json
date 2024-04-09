@@ -1,0 +1,18 @@
+﻿{
+  "id": "uuid",
+  "numeroPedido": "number",
+  "cpfCliente": "string",
+  "valorTotal": "double",
+  "dataPagamento": "date",
+  "formaPagamento" : {
+    "tipo": "uuid",
+    "descricao": "string"
+  },
+  "statusPagamento": [
+    {
+      "status": "number",
+      "descricao": "string",
+      "data": "date"
+    }
+  ]
+}

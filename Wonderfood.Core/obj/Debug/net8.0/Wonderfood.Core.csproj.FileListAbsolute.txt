@@ -1,0 +1,12 @@
+C:\Wonderfood.Pagamentos\Wonderfood.Core\bin\Debug\net8.0\Wonderfood.Core.deps.json
+C:\Wonderfood.Pagamentos\Wonderfood.Core\bin\Debug\net8.0\Wonderfood.Core.dll
+C:\Wonderfood.Pagamentos\Wonderfood.Core\bin\Debug\net8.0\Wonderfood.Core.pdb
+C:\Wonderfood.Pagamentos\Wonderfood.Core\obj\Debug\net8.0\Wonderfood.Core.csproj.AssemblyReference.cache
+C:\Wonderfood.Pagamentos\Wonderfood.Core\obj\Debug\net8.0\Wonderfood.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Wonderfood.Pagamentos\Wonderfood.Core\obj\Debug\net8.0\Wonderfood.Core.AssemblyInfoInputs.cache
+C:\Wonderfood.Pagamentos\Wonderfood.Core\obj\Debug\net8.0\Wonderfood.Core.AssemblyInfo.cs
+C:\Wonderfood.Pagamentos\Wonderfood.Core\obj\Debug\net8.0\Wonderfood.Core.csproj.CoreCompileInputs.cache
+C:\Wonderfood.Pagamentos\Wonderfood.Core\obj\Debug\net8.0\Wonderfood.Core.dll
+C:\Wonderfood.Pagamentos\Wonderfood.Core\obj\Debug\net8.0\refint\Wonderfood.Core.dll
+C:\Wonderfood.Pagamentos\Wonderfood.Core\obj\Debug\net8.0\Wonderfood.Core.pdb
+C:\Wonderfood.Pagamentos\Wonderfood.Core\obj\Debug\net8.0\ref\Wonderfood.Core.dll
