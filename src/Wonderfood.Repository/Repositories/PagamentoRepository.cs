@@ -24,9 +24,9 @@ public class PagamentoRepository : IPagamentoRepository
         return await _pagamentos.Find(new BsonDocument()).ToListAsync();
     }
 
-    public Task<Pagamento> ObterPorId(Guid id)
+    public async Task<Pagamento> ObterPorId(Guid id)
     {
-        throw new NotImplementedException();
+        return await _pagamentos.Find(p => p.Id == id).FirstOrDefaultAsync();
     }
 
     public async Task Inserir(Pagamento pagamento)
@@ -34,13 +34,13 @@ public class PagamentoRepository : IPagamentoRepository
         await _pagamentos.InsertOneAsync(pagamento);
     }
 
-    public Task Atualizar(Pagamento pagamento)
+    public async Task Atualizar(Pagamento pagamento)
     {
-        throw new NotImplementedException();
+        await _pagamentos.ReplaceOneAsync(p => p.Id == pagamento.Id, pagamento);
     }
 
-    public Task Remover(Guid id)
+    public async Task Remover(Guid id)
     {
-        throw new NotImplementedException();
+        await _pagamentos.DeleteOneAsync(p => p.Id == id);
     }
 }

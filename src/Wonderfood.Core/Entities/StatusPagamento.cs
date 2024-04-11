@@ -1,8 +1,9 @@
-﻿namespace Wonderfood.Core.Entities;
+﻿using Wonderfood.Core.Entities.Enums;
+
+namespace Wonderfood.Core.Entities;
 
 public class StatusPagamento
 {
-    public string Status { get; set; }
-    public string Descricao { get; set; }
+    public SituacaoPagamento Situacao { get; set; }
     public DateTime Data { get; set; }
 }
