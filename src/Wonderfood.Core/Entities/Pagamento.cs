@@ -8,11 +8,11 @@ public class Pagamento
  {
      [BsonId]
      [BsonRepresentation(BsonType.ObjectId)]
-     public Guid Id { get; set; }
+     public string Id { get; set; }
      public int NumeroPedido { get; set; }
-     public string CpfCliente { get; set; }
+     public Guid IdCliente { get; set; }
      public decimal ValorTotal { get; set; }
-     public DateTime DataPagamento { get; set; }
+     public DateTime DataConfirmacaoPedido { get; set; }
      public FormaPagamento FormaPagamento { get; set; }
      public List<StatusPagamento> HistoricoStatus { get; set; }
  }

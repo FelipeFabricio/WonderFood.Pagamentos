@@ -2,7 +2,6 @@
 using MongoDB.Bson;
 using MongoDB.Driver;
 using Wonderfood.Core.Entities;
-using Wonderfood.Core.Interfaces;
 using Wonderfood.Repository.Interfaces;
 using Wonderfood.Repository.Settings;
 
@@ -11,22 +10,24 @@ namespace Wonderfood.Repository.Repositories;
 public class PagamentoRepository : IPagamentoRepository
 {
     private readonly IMongoCollection<Pagamento> _pagamentos;
-    private readonly MongoDbSettings _settings;
 
     public PagamentoRepository(IMongoDbContext context, IOptions<MongoDbSettings> settings)
     {
-        _settings = settings.Value;
-        _pagamentos = context.GetDatabase().GetCollection<Pagamento>(_settings.CollectionName);
+        _pagamentos = context.GetDatabase().GetCollection<Pagamento>(settings.Value.CollectionName);
     }
     
     public async Task<List<Pagamento>> ObterTodos()
     {
         return await _pagamentos.Find(new BsonDocument()).ToListAsync();
     }
+    public async Task<Pagamento> ObterPorNumeroPedido(int numeroPedido)
+    {
+        return await _pagamentos.Find(p => p.NumeroPedido == numeroPedido).FirstOrDefaultAsync();
+    }
 
     public async Task<Pagamento> ObterPorId(Guid id)
     {
-        return await _pagamentos.Find(p => p.Id == id).FirstOrDefaultAsync();
+        return await _pagamentos.Find(p => p.Id == id.ToString()).FirstOrDefaultAsync();
     }
 
     public async Task Inserir(Pagamento pagamento)
@@ -34,13 +35,11 @@ public class PagamentoRepository : IPagamentoRepository
         await _pagamentos.InsertOneAsync(pagamento);
     }
 
-    public async Task Atualizar(Pagamento pagamento)
+    public async Task AtualizarStatusPagamento(Guid id, StatusPagamento status)
     {
-        await _pagamentos.ReplaceOneAsync(p => p.Id == pagamento.Id, pagamento);
-    }
+        var filtro = Builders<Pagamento>.Filter.Eq(p => p.Id, id.ToString());
+        var update = Builders<Pagamento>.Update.Push(p => p.HistoricoStatus, status);
 
-    public async Task Remover(Guid id)
-    {
-        await _pagamentos.DeleteOneAsync(p => p.Id == id);
+        await _pagamentos.UpdateOneAsync(filtro, update);
     }
 }

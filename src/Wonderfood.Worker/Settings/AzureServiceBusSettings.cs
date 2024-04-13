@@ -10,5 +10,5 @@ public class Queues
 {
     public string PagamentosConfirmados { get; set; }
     public string PagamentosRecusados { get; set; }
-    public string PedidosRealizados { get; set; }
+    public string PagamentosSolicitados { get; set; }
 }

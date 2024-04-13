@@ -8,6 +8,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Wonderfood.Core\Wonderfood.Core.csproj" />
+      <ProjectReference Include="..\Wonderfood.Repository\Wonderfood.Repository.csproj" />
     </ItemGroup>
 
 </Project>

@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Wonderfood.Core.Interfaces;
 using Wonderfood.Database.Context;
 using Wonderfood.Repository.Interfaces;
 using Wonderfood.Repository.Repositories;
