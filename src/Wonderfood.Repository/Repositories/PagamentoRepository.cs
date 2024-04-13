@@ -20,9 +20,9 @@ public class PagamentoRepository : IPagamentoRepository
     {
         return await _pagamentos.Find(new BsonDocument()).ToListAsync();
     }
-    public async Task<Pagamento> ObterPorNumeroPedido(int numeroPedido)
+    public async Task<Pagamento> ObterPorIdPedido(Guid idPedido)
     {
-        return await _pagamentos.Find(p => p.NumeroPedido == numeroPedido).FirstOrDefaultAsync();
+        return await _pagamentos.Find(p => p.IdPedido == idPedido).FirstOrDefaultAsync();
     }
 
     public async Task<Pagamento> ObterPorId(Guid id)

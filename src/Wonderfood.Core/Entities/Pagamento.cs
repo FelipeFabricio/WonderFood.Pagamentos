@@ -9,7 +9,7 @@ public class Pagamento
      [BsonId]
      [BsonRepresentation(BsonType.ObjectId)]
      public string Id { get; set; }
-     public int NumeroPedido { get; set; }
+     public Guid IdPedido { get; set; }
      public Guid IdCliente { get; set; }
      public decimal ValorTotal { get; set; }
      public DateTime DataConfirmacaoPedido { get; set; }

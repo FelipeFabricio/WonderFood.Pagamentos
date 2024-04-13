@@ -3,10 +3,10 @@ using MassTransit;
 using Microsoft.AspNetCore.Mvc;
 using Wonderfood.Core.Entities;
 using Wonderfood.Core.Entities.Enums;
+using Wonderfood.Core.Interfaces;
 using Wonderfood.Core.Models;
 using Wonderfood.Repository.Repositories;
 using Wonderfood.Service.Services;
-using Wonderfood.Worker.Interfaces;
 
 namespace Wonderfood.Worker.Controllers
 {
@@ -46,7 +46,7 @@ namespace Wonderfood.Worker.Controllers
         {
             var pagamento = new Pagamento
             {
-                NumeroPedido = 1,
+                IdPedido = Guid.NewGuid(),
                 DataConfirmacaoPedido = DateTime.Now,
                 IdCliente = Guid.NewGuid(),
                 ValorTotal = 100,
@@ -77,29 +77,16 @@ namespace Wonderfood.Worker.Controllers
         [HttpPost(Name = "Publicar")]
         public async Task<IActionResult> GetDeNovo()
         {
-            // var evento = new PagamentoRecusadoEvent
-            // {
-            //     Recusado = true
-            // };
-            //
-            // var evento2 = new PagamentoConfirmadoEvent()
-            // {
-            //     Confirmado = true
-            // };
-            //
             var evento3 = new PagamentoSolicitadoEvent()
             {
-                NumeroPedido = 1,
+                IdPedido = Guid.NewGuid(),
                 DataConfirmacaoPedido = DateTime.Now,
                 IdCliente = Guid.NewGuid(),
                 ValorTotal = 100,
                 FormaPagamento = FormaPagamento.CartaoCredito
             };
-            
-            // await _publisher.Send(evento);
-            // await _publisher.Send(evento2);
+
             await _publisher.Send(evento3);
-            
             return Ok();
         }
     }

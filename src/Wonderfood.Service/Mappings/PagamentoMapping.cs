@@ -9,7 +9,7 @@ public static class PagamentoMapping
     {
         return new Pagamento
         {
-            NumeroPedido = pagamentoSolicitadoEvent.NumeroPedido,
+            IdPedido = pagamentoSolicitadoEvent.IdPedido,
             ValorTotal = pagamentoSolicitadoEvent.ValorTotal,
             FormaPagamento = pagamentoSolicitadoEvent.FormaPagamento,
             IdCliente = pagamentoSolicitadoEvent.IdCliente,

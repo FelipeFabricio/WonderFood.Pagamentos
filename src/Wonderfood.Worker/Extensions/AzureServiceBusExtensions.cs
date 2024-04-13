@@ -1,7 +1,7 @@
 using MassTransit;
+using Wonderfood.Core.Interfaces;
 using Wonderfood.Core.Models;
 using Wonderfood.Worker.Consumers;
-using Wonderfood.Worker.Interfaces;
 using Wonderfood.Worker.QueueServices;
 
 namespace Wonderfood.Worker.Extensions;
@@ -51,12 +51,7 @@ public static class AzureServiceBusExtensions
                 
                 cfg.ReceiveEndpoint(settings.Queues.PagamentosConfirmados, e =>
                 {
-                    EndpointConvention.Map<PagamentoConfirmadoEvent>(e.InputAddress);
-                });
-                
-                cfg.ReceiveEndpoint(settings.Queues.PagamentosRecusados, e =>
-                {
-                    EndpointConvention.Map<PagamentoRecusadoEvent>(e.InputAddress);
+                    EndpointConvention.Map<PagamentoProcessadoEvent>(e.InputAddress);
                 });
                 cfg.UseServiceBusMessageScheduler();
             });

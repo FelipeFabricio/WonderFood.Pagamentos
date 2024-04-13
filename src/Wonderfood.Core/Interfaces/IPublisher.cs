@@ -1,6 +1,6 @@
 using MassTransit;
 
-namespace Wonderfood.Worker.Interfaces;
+namespace Wonderfood.Core.Interfaces;
 
 /// <summary>
 /// Possibilita o uso de mais de um tipo de bus nas aplicação:

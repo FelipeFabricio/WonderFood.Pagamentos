@@ -9,4 +9,4 @@ public static class SettingsExtensions
         using ServiceProvider provider = services.BuildServiceProvider();
         return provider.GetService<IOptions<T>>()!.Value;
     }
-}
+} 
