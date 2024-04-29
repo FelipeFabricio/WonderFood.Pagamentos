@@ -4,3 +4,15 @@ GET {{Wonderfood.Worker_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###
+#
+#{
+#  "clienteId": "02f402ed-416c-4841-b815-08dc5d9f6be8",
+#  "observacao": "string",
+#  "formaPagamento": "Pix",
+#  "produtos": [
+#    {
+#      "produtoId": "1c0ec012-850a-4c2e-2187-08dc5d9f7d4d",
+#      "quantidade": 2
+#    }
+#  ]
+#}

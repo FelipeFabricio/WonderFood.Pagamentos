@@ -1,5 +1,6 @@
 using Wonderfood.Core.Entities;
-using Wonderfood.Core.Models;
+using Wonderfood.Core.Entities.Enums;
+using Wonderfood.Models.Events;
 
 namespace Wonderfood.Service.Mappings;
 
@@ -13,7 +14,15 @@ public static class PagamentoMapping
             ValorTotal = pagamentoSolicitadoEvent.ValorTotal,
             FormaPagamento = pagamentoSolicitadoEvent.FormaPagamento,
             IdCliente = pagamentoSolicitadoEvent.IdCliente,
-            DataConfirmacaoPedido = pagamentoSolicitadoEvent.DataConfirmacaoPedido
+            DataConfirmacaoPedido = pagamentoSolicitadoEvent.DataConfirmacaoPedido,
+            HistoricoStatus =
+            [
+                new StatusPagamento
+                {
+                    Situacao = SituacaoPagamento.AguardandoRetornoProcessadora,
+                    Data = DateTime.Now
+                }
+            ]
         };
     } 
 }

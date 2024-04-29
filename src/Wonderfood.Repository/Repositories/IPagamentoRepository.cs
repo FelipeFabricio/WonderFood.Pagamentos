@@ -8,5 +8,5 @@ public interface IPagamentoRepository
     Task<Pagamento> ObterPorIdPedido(Guid idPedido);
     Task<Pagamento> ObterPorId(Guid id);
     Task Inserir(Pagamento pagamento);
-    Task AtualizarStatusPagamento(Guid id, StatusPagamento status);
+    Task AtualizarStatusPagamento(Guid idPedido, StatusPagamento status);
 }

@@ -1,4 +1,4 @@
-using Wonderfood.Repository.Extensions;
+using Wonderfood.Repository;
 using Wonderfood.Repository.Settings;
 using Wonderfood.Service.ServiceExtensions;
 using Wonderfood.Worker.QueueServices;
@@ -11,8 +11,7 @@ builder.Services.Configure<MongoDbSettings>(builder.Configuration.GetSection("Mo
 builder.Services.Configure<AzureServiceBusSettings>(builder.Configuration.GetSection("AzureServiceBusSettings"));
 builder.Services.AddMongoDbServices(builder.Configuration);
 builder.Services.AddServiceLayerExtensions();
-builder.Services.AddAzureServiceBusConsumers(builder.Configuration);
-builder.Services.AddAzureServiceBusPublisher(builder.Configuration);
+builder.Services.AddAzureServiceBusServices();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

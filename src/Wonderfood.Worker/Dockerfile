@@ -9,6 +9,9 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 COPY ["src/Wonderfood.Worker/Wonderfood.Worker.csproj", "src/Wonderfood.Worker/"]
+COPY ["src/Wonderfood.Core/Wonderfood.Core.csproj", "src/Wonderfood.Core/"]
+COPY ["src/Wonderfood.Repository/Wonderfood.Repository.csproj", "src/Wonderfood.Repository/"]
+COPY ["src/Wonderfood.Service/Wonderfood.Service.csproj", "src/Wonderfood.Service/"]
 RUN dotnet restore "src/Wonderfood.Worker/Wonderfood.Worker.csproj"
 COPY . .
 WORKDIR "/src/src/Wonderfood.Worker"

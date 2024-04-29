@@ -7,15 +7,11 @@ using Wonderfood.Repository.Settings;
 
 namespace Wonderfood.Repository.Repositories;
 
-public class PagamentoRepository : IPagamentoRepository
+public class PagamentoRepository(IMongoDbContext context, IOptions<MongoDbSettings> settings)
+    : IPagamentoRepository
 {
-    private readonly IMongoCollection<Pagamento> _pagamentos;
+    private readonly IMongoCollection<Pagamento> _pagamentos = context.GetDatabase().GetCollection<Pagamento>(settings.Value.CollectionName);
 
-    public PagamentoRepository(IMongoDbContext context, IOptions<MongoDbSettings> settings)
-    {
-        _pagamentos = context.GetDatabase().GetCollection<Pagamento>(settings.Value.CollectionName);
-    }
-    
     public async Task<List<Pagamento>> ObterTodos()
     {
         return await _pagamentos.Find(new BsonDocument()).ToListAsync();
@@ -35,9 +31,9 @@ public class PagamentoRepository : IPagamentoRepository
         await _pagamentos.InsertOneAsync(pagamento);
     }
 
-    public async Task AtualizarStatusPagamento(Guid id, StatusPagamento status)
+    public async Task AtualizarStatusPagamento(Guid idPedido, StatusPagamento status)
     {
-        var filtro = Builders<Pagamento>.Filter.Eq(p => p.Id, id.ToString());
+        var filtro = Builders<Pagamento>.Filter.Eq(p => p.IdPedido, idPedido);
         var update = Builders<Pagamento>.Update.Push(p => p.HistoricoStatus, status);
 
         await _pagamentos.UpdateOneAsync(filtro, update);

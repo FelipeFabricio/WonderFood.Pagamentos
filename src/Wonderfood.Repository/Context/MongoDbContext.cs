@@ -3,7 +3,7 @@ using MongoDB.Driver;
 using Wonderfood.Repository.Interfaces;
 using Wonderfood.Repository.Settings;
 
-namespace Wonderfood.Database.Context;
+namespace Wonderfood.Repository.Context;
 
 public class MongoDbContext : IMongoDbContext
 {

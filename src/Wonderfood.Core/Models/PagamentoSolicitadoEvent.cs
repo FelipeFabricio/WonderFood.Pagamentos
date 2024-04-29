@@ -1,6 +1,7 @@
 using Wonderfood.Core.Entities.Enums;
 
-namespace Wonderfood.Core.Models;
+//TODO: Package
+namespace Wonderfood.Models.Events;
 
 public class PagamentoSolicitadoEvent
 {

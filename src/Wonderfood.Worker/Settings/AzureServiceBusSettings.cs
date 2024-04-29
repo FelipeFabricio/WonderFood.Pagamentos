@@ -8,7 +8,6 @@ public class AzureServiceBusSettings
 
 public class Queues
 {
-    public string PagamentosConfirmados { get; set; }
-    public string PagamentosRecusados { get; set; }
+    public string PagamentosProcessados { get; set; }
     public string PagamentosSolicitados { get; set; }
 }

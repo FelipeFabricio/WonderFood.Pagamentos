@@ -1,12 +1,12 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Wonderfood.Database.Context;
+using Wonderfood.Repository.Context;
 using Wonderfood.Repository.Interfaces;
 using Wonderfood.Repository.Repositories;
 
-namespace Wonderfood.Repository.Extensions
+namespace Wonderfood.Repository
 {
-    public static class ServiceExtensions
+    public static class DependencyInjection
     {
         public static IServiceCollection AddMongoDbServices(this IServiceCollection services, IConfiguration configuration)
         {
