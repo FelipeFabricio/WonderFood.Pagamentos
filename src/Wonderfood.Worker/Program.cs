@@ -1,5 +1,5 @@
 using Wonderfood.Repository;
-using Wonderfood.Service.ServiceExtensions;
+using Wonderfood.Service;
 using Wonderfood.Worker;
 
 var builder = WebApplication.CreateBuilder(args);

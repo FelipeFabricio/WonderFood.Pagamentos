@@ -1,7 +1,6 @@
 ﻿using MassTransit;
 using Wonderfood.Core.Entities;
 using Wonderfood.Core.Entities.Enums;
-using Wonderfood.Core.Models;
 using Wonderfood.Models.Events;
 using Wonderfood.Repository.Repositories;
 using Wonderfood.Service.Mappings;

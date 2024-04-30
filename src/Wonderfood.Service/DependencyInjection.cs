@@ -1,7 +1,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Wonderfood.Service.Services;
 
-namespace Wonderfood.Service.ServiceExtensions;
+namespace Wonderfood.Service;
 
 public static class DependencyInjection
 {

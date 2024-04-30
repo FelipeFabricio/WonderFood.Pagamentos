@@ -1,16 +1,15 @@
 ﻿services:
-  wonderfood.worker:
+  app:
     image: wonderfood.worker
+    container_name: app-pagamentos
     build:
       context: .
       dockerfile: Dockerfile
     depends_on:
         - mongodb
     ports:
-      - "5000:80"
-      - "5001:443"
-    networks:
-      - wonderfood
+      - "5000:8080"
+      - "5001:8443"
     env_file:
       - .env
 
@@ -25,5 +24,6 @@
         MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
         MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
         MONGO_INITDB_DATABASE: ${MONGO_INITDB_DATABASE}
-    networks:
-      - wonderfood
+
+volumes:
+    mongodb_data:
