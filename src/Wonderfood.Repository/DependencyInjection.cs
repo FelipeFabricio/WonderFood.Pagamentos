@@ -9,9 +9,9 @@ namespace Wonderfood.Repository
     {
         public static IServiceCollection AddMongoDb(this IServiceCollection services, IConfiguration configuration)
         {
-            var connectionString = configuration["MONGO_CONNECTION"];
+            var connectionString = configuration["MONGODB_CONNECTION"];
             var databaseName = configuration["MONGO_INITDB_DATABASE"];
-            
+
             services.AddSingleton<IMongoClient>(x => new MongoClient(connectionString));
             services.AddSingleton<IMongoDatabase>(x =>
             {
