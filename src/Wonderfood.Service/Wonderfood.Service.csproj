@@ -11,8 +11,4 @@
       <ProjectReference Include="..\Wonderfood.Repository\Wonderfood.Repository.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <PackageReference Include="MassTransit" Version="8.2.1-develop.1736" />
-    </ItemGroup>
-
 </Project>

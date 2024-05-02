@@ -7,7 +7,6 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddMongoDb(builder.Configuration);
 builder.Services.AddServiceLayerExtensions();
-builder.Services.AddAzureServiceBus(builder.Configuration);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

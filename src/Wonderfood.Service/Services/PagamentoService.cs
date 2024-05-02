@@ -1,5 +1,4 @@
-﻿using MassTransit;
-using Wonderfood.Core.Entities;
+﻿using Wonderfood.Core.Entities;
 using Wonderfood.Core.Entities.Enums;
 using Wonderfood.Models.Events;
 using Wonderfood.Repository.Repositories;
@@ -7,7 +6,7 @@ using Wonderfood.Service.Mappings;
 
 namespace Wonderfood.Service.Services;
 
-public class PagamentoService(IPagamentoRepository pagamentoRepository, IPublishEndpoint bus) : IPagamentoService
+public class PagamentoService(IPagamentoRepository pagamentoRepository) : IPagamentoService
 {
     public async Task EnviarSolicitacaoProcessadora(PagamentoSolicitadoEvent pagamento)
     {
@@ -21,12 +20,6 @@ public class PagamentoService(IPagamentoRepository pagamentoRepository, IPublish
         {
             Situacao = novoStatus,
             Data = DateTime.Now
-        });
-        
-        await bus.Publish(new PagamentoProcessadoEvent
-        {
-            IdPedido = idPedido,
-            StatusPagamento = novoStatus,
         });
     }
     
