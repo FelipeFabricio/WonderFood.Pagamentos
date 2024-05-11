@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MongoDB.Driver;
+using Wonderfood.Core.Interfaces;
 using Wonderfood.Repository.Repositories;
 
 namespace Wonderfood.Repository
@@ -9,8 +10,12 @@ namespace Wonderfood.Repository
     {
         public static IServiceCollection AddMongoDb(this IServiceCollection services, IConfiguration configuration)
         {
-            var connectionString = configuration["MONGODB_CONNECTION"];
-            var databaseName = configuration["MONGO_INITDB_DATABASE"];
+            var enviroment = configuration["ASPNETCORE_ENVIRONMENT"];
+            var connectionString = enviroment == "Development" ? configuration["ConnectionStrings:DefaultConnection"] : 
+                configuration["MONGODB_CONNECTION"];
+
+            var databaseName = enviroment == "Development" ? configuration["ConnectionStrings:DatabaseName"]
+                : configuration["MONGO_INITDB_DATABASE"]; 
 
             services.AddSingleton<IMongoClient>(x => new MongoClient(connectionString));
             services.AddSingleton<IMongoDatabase>(x =>

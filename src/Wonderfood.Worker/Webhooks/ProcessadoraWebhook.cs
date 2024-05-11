@@ -1,12 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
 using Wonderfood.Core.Entities.Enums;
-using Wonderfood.Service.Services;
+using Wonderfood.Core.Interfaces;
 
-namespace Wonderfood.Worker.Controllers
+namespace Wonderfood.Worker.Webhooks
 {
-    [ApiController]
-    [Route("[controller]/webhook")]
-    public class WebhookProcessadoraController(IPagamentoService pagamentoService) : ControllerBase
+    [Route("/webhook/processadora")]
+    public class ProcessadoraWebhook(IPagamentoService pagamentoService) : ControllerBase
     {
         /// <summary>
         /// Webhook que recebe o retorno da processadora.
@@ -14,9 +13,9 @@ namespace Wonderfood.Worker.Controllers
         /// <response code="200">Criado com sucesso</response>
         [HttpPost("retorno-processadora")]
         public async Task<IActionResult> RetornoProcessadora([FromQuery] Guid idPedido,
-            SituacaoPagamento situacao)
+            StatusPagamento status)
         {
-            await pagamentoService.AtualizarStatusPagamento(idPedido, situacao);
+            await pagamentoService.AtualizarStatusPagamento(idPedido, status);
             return Ok();
         }
     }

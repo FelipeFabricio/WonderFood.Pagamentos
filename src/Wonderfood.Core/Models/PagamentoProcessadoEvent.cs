@@ -5,5 +5,5 @@ namespace Wonderfood.Models.Events;
 public class PagamentoProcessadoEvent
 {
     public Guid IdPedido { get; set; }
-    public SituacaoPagamento StatusPagamento { get; set; }
-}
+    public StatusPagamento StatusPagamento { get; set; }
+} 

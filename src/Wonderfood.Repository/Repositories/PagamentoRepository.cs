@@ -1,6 +1,7 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Driver;
 using Wonderfood.Core.Entities;
+using Wonderfood.Core.Interfaces;
 
 namespace Wonderfood.Repository.Repositories;
 

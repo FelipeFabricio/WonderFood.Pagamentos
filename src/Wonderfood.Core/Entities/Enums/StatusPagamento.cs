@@ -1,6 +1,6 @@
 ﻿namespace Wonderfood.Core.Entities.Enums;
 
-public enum SituacaoPagamento
+public enum StatusPagamento
 {
     SolicitacaoPagamentoRecebida,
     AguardandoRetornoProcessadora,

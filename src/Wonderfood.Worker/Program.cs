@@ -1,27 +1,29 @@
+using System.Text.Json.Serialization;
+using Wonderfood.ExternalServices;
 using Wonderfood.Repository;
 using Wonderfood.Service;
 using Wonderfood.Worker;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllers();
-builder.Services.AddMongoDb(builder.Configuration);
-builder.Services.AddServiceLayerExtensions();
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+});
+builder.Services.Configure<ExternalServicesSettings>(builder.Configuration.GetSection("ExternalServicesSettings"));
+builder.Services
+    .AddMongoDb(builder.Configuration)
+    .AddServiceLayer()
+    .AddExternalServices();
+
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwagger();
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
+app.UseSwaggerMiddleware();
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
 app.MapControllers();
-
 app.Run();

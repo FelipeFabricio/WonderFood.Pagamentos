@@ -1,6 +1,7 @@
 using Wonderfood.Core.Entities;
 using Wonderfood.Core.Entities.Enums;
 using Wonderfood.Models.Events;
+using StatusPagamento = Wonderfood.Core.Entities.Enums.StatusPagamento;
 
 namespace Wonderfood.Service.Mappings;
 
@@ -17,9 +18,9 @@ public static class PagamentoMapping
             DataConfirmacaoPedido = pagamentoSolicitadoEvent.DataConfirmacaoPedido,
             HistoricoStatus =
             [
-                new StatusPagamento
+                new Core.Entities.StatusPagamento
                 {
-                    Situacao = SituacaoPagamento.AguardandoRetornoProcessadora,
+                    Status = StatusPagamento.AguardandoRetornoProcessadora,
                     Data = DateTime.Now
                 }
             ]

@@ -1,12 +1,12 @@
 ﻿using Wonderfood.Core.Entities;
-using Wonderfood.Core.Entities.Enums;
+using Wonderfood.Core.Interfaces;
 using Wonderfood.Models.Events;
-using Wonderfood.Repository.Repositories;
 using Wonderfood.Service.Mappings;
+using StatusPagamento = Wonderfood.Core.Entities.Enums.StatusPagamento;
 
 namespace Wonderfood.Service.Services;
 
-public class PagamentoService(IPagamentoRepository pagamentoRepository) : IPagamentoService
+public class PagamentoService(IPagamentoRepository pagamentoRepository, IWonderFoodPedidosExternal pedidosExternal) : IPagamentoService
 {
     public async Task EnviarSolicitacaoProcessadora(PagamentoSolicitadoEvent pagamento)
     {
@@ -14,12 +14,20 @@ public class PagamentoService(IPagamentoRepository pagamentoRepository) : IPagam
         await InserirPagamento(pagamentoDomain);
     }
 
-    public async Task AtualizarStatusPagamento(Guid idPedido, SituacaoPagamento novoStatus)
+    public async Task AtualizarStatusPagamento(Guid idPedido, StatusPagamento novoStatus)
     {
-        await pagamentoRepository.AtualizarStatusPagamento(idPedido, new StatusPagamento
+        var statusPagamento = new Core.Entities.StatusPagamento
         {
-            Situacao = novoStatus,
+            Status = novoStatus,
             Data = DateTime.Now
+        };
+        
+        await pagamentoRepository.AtualizarStatusPagamento(idPedido, statusPagamento);
+
+        await pedidosExternal.EnviarPagamentoProcessado(new PagamentoProcessadoEvent
+        {
+            StatusPagamento = novoStatus,
+            IdPedido = idPedido
         });
     }
     

@@ -1,6 +1,6 @@
 using Wonderfood.Core.Entities;
 
-namespace Wonderfood.Repository.Repositories;
+namespace Wonderfood.Core.Interfaces;
 
 public interface IPagamentoRepository
 {

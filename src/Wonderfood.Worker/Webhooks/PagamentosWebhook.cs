@@ -1,12 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
+using Wonderfood.Core.Interfaces;
 using Wonderfood.Models.Events;
-using Wonderfood.Service.Services;
 
-namespace Wonderfood.Worker.Controllers;
+namespace Wonderfood.Worker.Webhooks;
 
-[ApiController]
-[Route("[controller]/webhook")]
-public class WebhookPagamentosController(IPagamentoService pagamentoService) : ControllerBase
+[Route("/webhook/pagamentos")]
+public class PagamentosWebhook(IPagamentoService pagamentoService) : ControllerBase
 {
     /// <summary>
     /// Webhook que recebe solicitação de processamento de pagamento.
