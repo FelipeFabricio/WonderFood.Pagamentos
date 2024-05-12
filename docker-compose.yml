@@ -1,15 +1,15 @@
 ﻿services:
   app:
-    image: felipefabricio/wonderfood
-    container_name: app-pagamentos
+    image: felipefabricio/wdf.pagamentos.worker
+    container_name: pagamentos-worker
     build:
       context: .
       dockerfile: Dockerfile
     depends_on:
         - mongodb
     ports:
-      - "5000:8080"
-      - "5001:8081"
+      - "9000:8080"
+      - "9001:8081"
     env_file:
       - .env
 

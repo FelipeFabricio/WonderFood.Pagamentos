@@ -10,6 +10,7 @@ COPY ["src/Wonderfood.Worker/Wonderfood.Worker.csproj", "src/Wonderfood.Worker/"
 COPY ["src/Wonderfood.Core/Wonderfood.Core.csproj", "src/Wonderfood.Core/"]
 COPY ["src/Wonderfood.Repository/Wonderfood.Repository.csproj", "src/Wonderfood.Repository/"]
 COPY ["src/Wonderfood.Service/Wonderfood.Service.csproj", "src/Wonderfood.Service/"]
+COPY ["src/Wonderfood.ExternalServices/Wonderfood.ExternalServices.csproj", "src/Wonderfood.ExternalServices/"]
 RUN dotnet restore "src/Wonderfood.Worker/Wonderfood.Worker.csproj"
 COPY . .
 WORKDIR "/src/src/Wonderfood.Worker"
