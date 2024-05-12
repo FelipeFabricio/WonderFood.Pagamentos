@@ -21,7 +21,7 @@ public class PagamentosWebhook(IPagamentoService pagamentoService) : ControllerB
         }
         catch (Exception ex)
         {
-            return StatusCode(400, $"Erro ao processar o webhook: {ex.Message}");
+            return BadRequest(new { ex.Message });
         }
     }
 }
