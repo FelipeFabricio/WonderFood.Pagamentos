@@ -8,7 +8,7 @@ namespace Wonderfood.Repository
 {
     public static class DependencyInjection
     {
-        public static IServiceCollection AddMongoDb(this IServiceCollection services, IConfiguration configuration)
+        public static void AddMongoDb(this IServiceCollection services, IConfiguration configuration)
         {
             var enviroment = configuration["ASPNETCORE_ENVIRONMENT"];
             var connectionString = enviroment == "Development" ? configuration["ConnectionStrings:DefaultConnection"] : 
@@ -25,7 +25,7 @@ namespace Wonderfood.Repository
             });
             
             services.AddScoped<IPagamentoRepository, PagamentoRepository>();
-            return services;
+            services.AddHealthChecks().AddMySql(connectionString);
         }
     }
 }
