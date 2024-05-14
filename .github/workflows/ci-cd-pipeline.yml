@@ -82,4 +82,3 @@ jobs:
       - name: Deploy do Manifesto no AKS
         run: |
           kubectl apply -f pagamentos-deployment.yml --force
-
