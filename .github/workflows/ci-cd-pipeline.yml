@@ -46,7 +46,6 @@ jobs:
           dotnet-coverage collect "dotnet test" -f xml -o "coverage.xml"
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
   
-
   CD:
     needs: CI
     if: github.ref == 'refs/heads/Master' && github.event_name == 'push'
@@ -82,5 +81,5 @@ jobs:
 
       - name: Deploy do Manifesto no AKS
         run: |
-          kubectl apply -f pagamentos-deployment.yml --force --record
+          kubectl apply -f pagamentos-deployment.yml --force
 
