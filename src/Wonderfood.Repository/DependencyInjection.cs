@@ -25,7 +25,7 @@ namespace Wonderfood.Repository
             });
             
             services.AddScoped<IPagamentoRepository, PagamentoRepository>();
-            services.AddHealthChecks().AddMySql(connectionString);
+            services.AddHealthChecks().AddMongoDb(connectionString);
         }
     }
 }
