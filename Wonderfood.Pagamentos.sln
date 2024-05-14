@@ -18,6 +18,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.env = .env
 		.gitignore = .gitignore
 		Dockerfile = Dockerfile
+		pagamentos-deployment.yml = pagamentos-deployment.yml
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wonderfood.ExternalServices", "src\Wonderfood.ExternalServices\Wonderfood.ExternalServices.csproj", "{251C5DF4-B139-4A7D-8A5B-3ABC90D66601}"
