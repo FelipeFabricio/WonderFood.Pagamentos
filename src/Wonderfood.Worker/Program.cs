@@ -1,7 +1,4 @@
 using System.Text.Json.Serialization;
-using HealthChecks.UI.Client;
-using Microsoft.AspNetCore.Diagnostics.HealthChecks;
-using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Wonderfood.ExternalServices;
 using Wonderfood.Repository;
 using Wonderfood.Service;
@@ -27,19 +24,5 @@ var app = builder.Build();
 app.UseSwaggerMiddleware();
 app.UseRouting();
 app.UseAuthorization();
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapControllers();
-    endpoints.MapGet("/_health", () => Results.Ok("Healthy"));
-    endpoints.MapHealthChecks("/_ready", new HealthCheckOptions
-    {
-        ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse,
-        ResultStatusCodes =
-        {
-            [HealthStatus.Healthy] = StatusCodes.Status200OK,
-            [HealthStatus.Degraded] = StatusCodes.Status200OK,
-            [HealthStatus.Unhealthy] = StatusCodes.Status503ServiceUnavailable
-        }
-    });
-});
+app.MapControllers();
 app.Run();
