@@ -17,7 +17,7 @@ spec:
         - name: pgt-worker
           image: felipefabricio/wdf.pagamentos.worker:latest
           ports:
-            - containerPort: 80
+            - containerPort: 8080
               name: pgt-worker
               protocol: TCP
           resources:
@@ -50,8 +50,8 @@ spec:
     app: pgt-worker
   ports:
     - protocol: TCP
-      port: 80
-      targetPort: 80
+      port: 8080
+      targetPort: 8080
 
 ---
 
