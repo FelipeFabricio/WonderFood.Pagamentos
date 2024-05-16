@@ -36,6 +36,7 @@ public class PagamentosWebhookTests
     }
 
     [Fact]
+    [Trait("Worker", "PagamentosWebhook")]
     public void PagamentoSolicitadoWebhook_DeveRetornarBadRequest_QuandoUmaExceptionForLancada()
     {
         //Arrange
