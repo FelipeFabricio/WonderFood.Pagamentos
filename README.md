@@ -8,10 +8,11 @@ Sistema responsável pela parte de pagamentos do restaurante, tendo como princip
 <br>
 
 ## :scroll: Links e Documentação
-- #### Modelo de Dados: https://encurtador.com.br/pvwNO
+- #### Modelo de Dados: https://l1nq.com/Vk5AX
 - #### Fluxo de Pedido e Pagamento: https://encurtador.com.br/puvP3
+- #### Fluxo da Aplicação: https://l1nq.com/26BGT
 - #### Sumário Ubíquo: https://encurtador.com.br/bfVY8
-- #### Arquitetura de Infraestrutura no Azure: https://encurtador.com.br/nuNOT
+- #### Arquitetura de Infraestrutura no Azure: https://encurtador.com.br/bZT5k
 - #### Fluxo Autenticação com Azure AD B2C: https://encurtador.com.br/vTX01
 <br>
 
