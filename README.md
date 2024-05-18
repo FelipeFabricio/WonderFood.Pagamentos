@@ -1,3 +1,7 @@
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=FelipeFabricio_WonderFood.Pagamentos&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=FelipeFabricio_WonderFood.Pagamentos)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=FelipeFabricio_WonderFood.Pagamentos&metric=bugs)](https://sonarcloud.io/summary/new_code?id=FelipeFabricio_WonderFood.Pagamentos)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=FelipeFabricio_WonderFood.Pagamentos&metric=coverage)](https://sonarcloud.io/summary/new_code?id=FelipeFabricio_WonderFood.Pagamentos)
+
 # WonderFood.Pagamentos
 
 ## :information_source: Sobre
