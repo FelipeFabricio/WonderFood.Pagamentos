@@ -3,7 +3,7 @@ using TechTalk.SpecFlow;
 using Wonderfood.Core.Entities;
 using Wonderfood.Core.Entities.Enums;
 using Wonderfood.Core.Interfaces;
-using Wonderfood.Models.Events;
+using WonderFood.Models.Events;
 using Wonderfood.Service.Services;
 using Wonderfood.Worker.Webhooks;
 using StatusPagamento = Wonderfood.Core.Entities.Enums.StatusPagamento;

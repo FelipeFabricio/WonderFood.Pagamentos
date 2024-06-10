@@ -2,7 +2,7 @@ using NSubstitute;
 using Wonderfood.Core.Entities;
 using Wonderfood.Core.Entities.Enums;
 using Wonderfood.Core.Interfaces;
-using Wonderfood.Models.Events;
+using WonderFood.Models.Events;
 using Wonderfood.Service.Services;
 
 namespace Wonderfood.Service.UnitTests;

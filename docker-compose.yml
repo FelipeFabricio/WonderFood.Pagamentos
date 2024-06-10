@@ -6,12 +6,14 @@
       context: .
       dockerfile: Dockerfile
     depends_on:
-        - mongodb
+      - mongodb
     ports:
       - "9000:8080"
       - "9001:8081"
     env_file:
       - .env
+    networks:
+      - wonderfood_network
 
   mongodb:
     image: mongo
@@ -21,9 +23,15 @@
     volumes:
       - mongodb_data:/data/db
     environment:
-        MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
-        MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
-        MONGO_INITDB_DATABASE: ${MONGO_INITDB_DATABASE}
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+      MONGO_INITDB_DATABASE: ${MONGO_INITDB_DATABASE}
+    networks:
+      - wonderfood_network
 
 volumes:
-    mongodb_data:
+  mongodb_data:
+
+networks:
+  wonderfood_network:
+    external: true
