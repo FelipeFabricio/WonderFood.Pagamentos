@@ -18,13 +18,9 @@ builder.Services.AddServiceLayer();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwagger();
 
-// var rabbitMqUser = Configuration["RABBITMQ_DEFAULT_USER"];
-// var rabbitMqPassword = Configuration["RABBITMQ_DEFAULT_PASS"];
-// var rabbitMqHost = Configuration["RABBITMQ_HOST"];
-var rabbitMqUser = "useradmin";
-var rabbitMqPassword = "senhaForte123!";
-var rabbitMqHost = "amqp://wonderfood_mq:5672";
-
+var rabbitMqUser = builder.Configuration["RABBITMQ_DEFAULT_USER"];
+var rabbitMqPassword = builder.Configuration["RABBITMQ_DEFAULT_PASS"];
+var rabbitMqHost = builder.Configuration["RABBITMQ_HOST"];
 builder.Services.AddMassTransit(busConfigurator =>
 {
     busConfigurator.AddConsumer<PagamentoSolicitadoConsumer>();
