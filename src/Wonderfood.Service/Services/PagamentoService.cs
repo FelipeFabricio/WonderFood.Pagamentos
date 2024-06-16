@@ -15,6 +15,15 @@ public class PagamentoService(IPagamentoRepository pagamentoRepository,
         var pagamentoDomain = pagamento.MapToPagamento();
         await InserirPagamento(pagamentoDomain);
     }
+    
+    public async Task EnviarSolicitacaoReembolsoProcessadora(ReembolsoSolicitadoEvent reembolso)
+    {
+        await pagamentoRepository.AtualizarStatusPagamento(reembolso.IdPedido, new Core.Entities.StatusPagamento
+        {
+            Status = StatusPagamento.ReembolsoSolicitado,
+            Data = DateTime.Now
+        });
+    }
 
     public async Task AtualizarStatusPagamento(Guid idPedido, StatusPagamento novoStatus)
     {
@@ -36,5 +45,22 @@ public class PagamentoService(IPagamentoRepository pagamentoRepository,
     public async Task InserirPagamento(Pagamento pagamento)
     {
         await pagamentoRepository.Inserir(pagamento);
+    }
+
+    public async Task AtualizarStatusReembolso(Guid idPedido, StatusPagamento statusReembolso)
+    {
+        var statusPagamento = new Core.Entities.StatusPagamento
+        {
+            Status = statusReembolso,
+            Data = DateTime.Now
+        };
+        
+        await pagamentoRepository.AtualizarStatusPagamento(idPedido, statusPagamento);
+
+        await bus.Publish(new ReembolsoProcessadoEvent
+        {
+            StatusReembolso = statusReembolso,
+            IdPedido = idPedido
+        });
     }
 }

@@ -28,6 +28,8 @@ var rabbitMqHost = "amqp://wonderfood_mq:5672";
 builder.Services.AddMassTransit(busConfigurator =>
 {
     busConfigurator.AddConsumer<PagamentoSolicitadoConsumer>();
+    busConfigurator.AddConsumer<ReembolsoSolicitadoConsumer>();
+    
     busConfigurator.UsingRabbitMq((context, cfg) =>
     {
         cfg.Host(rabbitMqHost, hst =>
@@ -46,7 +48,22 @@ builder.Services.AddMassTransit(busConfigurator =>
             });
         });
         
+        cfg.ReceiveEndpoint("reembolso_solicitado", e =>
+        {
+            e.ConfigureConsumer<ReembolsoSolicitadoConsumer>(context);
+            e.Bind("WonderFood.Models.Events:ReembolsoSolicitadoEvent", x =>
+            {
+                x.RoutingKey = "reembolso.solicitado";
+                x.ExchangeType = "fanout";
+            });
+        });
+        
         cfg.Publish<PagamentoProcessadoEvent>(x =>
+        {
+            x.ExchangeType = "fanout";
+        });
+        
+        cfg.Publish<ReembolsoProcessadoEvent>(x =>
         {
             x.ExchangeType = "fanout";
         });
