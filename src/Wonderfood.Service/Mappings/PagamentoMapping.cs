@@ -1,6 +1,6 @@
 using Wonderfood.Core.Entities;
 using Wonderfood.Core.Entities.Enums;
-using Wonderfood.Models.Events;
+using WonderFood.Models.Events;
 using StatusPagamento = Wonderfood.Core.Entities.Enums.StatusPagamento;
 
 namespace Wonderfood.Service.Mappings;

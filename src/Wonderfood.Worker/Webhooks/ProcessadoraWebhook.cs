@@ -18,5 +18,17 @@ namespace Wonderfood.Worker.Webhooks
             await pagamentoService.AtualizarStatusPagamento(idPedido, status);
             return Ok();
         }
+        
+        /// <summary>
+        /// Webhook que recebe solicitação retorno da Solicitação de um pedido de Reembolso.
+        /// </summary>
+        /// <response code="200">Criado com sucesso</response>
+        [HttpPost("retorno-reembolso-processadora")]
+        public async Task<IActionResult> RetornoReembolsoProcessadora([FromQuery] Guid idPedido,
+            StatusPagamento statusReembolso)
+        {
+            await pagamentoService.AtualizarStatusReembolso(idPedido, statusReembolso);
+            return Ok();
+        }
     }
 }

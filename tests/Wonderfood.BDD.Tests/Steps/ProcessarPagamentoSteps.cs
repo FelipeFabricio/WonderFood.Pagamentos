@@ -1,9 +1,10 @@
+using MassTransit;
 using NSubstitute;
 using TechTalk.SpecFlow;
 using Wonderfood.Core.Entities;
 using Wonderfood.Core.Entities.Enums;
 using Wonderfood.Core.Interfaces;
-using Wonderfood.Models.Events;
+using WonderFood.Models.Events;
 using Wonderfood.Service.Services;
 using Wonderfood.Worker.Webhooks;
 using StatusPagamento = Wonderfood.Core.Entities.Enums.StatusPagamento;
@@ -18,12 +19,12 @@ public class ProcessarPagamentoSteps
     private readonly IPagamentoRepository _pagamentoRepository = Substitute.For<IPagamentoRepository>();
     private readonly IPagamentoService _pagamentoService;
     private readonly IPagamentoService _pagamentoServiceMock = Substitute.For<IPagamentoService>();
-    private readonly IWonderFoodPedidosExternal _pedidosExternal = Substitute.For<IWonderFoodPedidosExternal>();
+    private readonly IBus _bus = Substitute.For<IBus>();
 
     public ProcessarPagamentoSteps()
     {
         _processadoraWebhook = new ProcessadoraWebhook(_pagamentoServiceMock);
-        _pagamentoService = new PagamentoService(_pagamentoRepository, _pedidosExternal);
+        _pagamentoService = new PagamentoService(_pagamentoRepository, _bus);
     }
     
     [Given(@"que o Cliente possui um Pagamento com o status '(.*)'")]
@@ -66,7 +67,6 @@ public class ProcessarPagamentoSteps
     {
         //Arrange
         _pagamentoRepository.AtualizarStatusPagamento(Arg.Any<Guid>(), Arg.Any<Core.Entities.StatusPagamento>()).Returns(Task.CompletedTask);
-        _pedidosExternal.EnviarPagamentoProcessado(Arg.Any<PagamentoProcessadoEvent>()).Returns(Task.CompletedTask);
         
         //Act
         await _pagamentoService.AtualizarStatusPagamento(_pagamento.IdPedido, StatusPagamento.PagamentoAprovado);
@@ -79,6 +79,6 @@ public class ProcessarPagamentoSteps
     public async Task ThenDeveComunicarAoSistemaResponsavelPelosPedidosQueOPagamentoFoiEfetuadoComSucesso()
     {
         //Assert
-        await _pedidosExternal.Received(1).EnviarPagamentoProcessado(Arg.Any<PagamentoProcessadoEvent>());
+        await _bus.Received(1).Publish(Arg.Any<PagamentoProcessadoEvent>());
     }
 }

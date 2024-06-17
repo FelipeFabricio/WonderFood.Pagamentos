@@ -1,6 +1,4 @@
-﻿using Wonderfood.Core.Entities.Enums;
-
-namespace Wonderfood.Core.Entities;
+﻿namespace Wonderfood.Core.Entities;
 
 public class StatusPagamento
 {
