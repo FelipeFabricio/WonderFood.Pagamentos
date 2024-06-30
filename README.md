@@ -18,6 +18,8 @@ Sistema responsável pela parte de pagamentos do restaurante, tendo como princip
 - #### Sumário Ubíquo: https://shre.ink/DGGX
 - #### Arquitetura de Infraestrutura no Azure: https://shre.ink/DGGC
 - #### Fluxo Autenticação com Azure AD B2C: https://shre.ink/DGGv
+- #### Relatório OWASP: https://shre.ink/DGhd
+- #### Relatório RIPD: https://shre.ink/DGhk
 <br>
 
 ## :hammer_and_wrench:  Tecnologias utilizadas
